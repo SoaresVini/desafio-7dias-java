@@ -8,10 +8,10 @@ public class dia1 {
 	public static void main(String[] args) {
 	Scanner s = new Scanner(System.in);
 	
-	System.out.print("Número 1:");
+	System.out.println("Número 1:");
 	Integer num1 = Integer.valueOf(s.nextLine());
 	
-	System.out.print("Número 2:");
+	System.out.println("Número 2:");
 	Integer num2 = Integer.valueOf(s.nextLine());
 	
 	System.out.println("Soma dos números lidos: " + calcSoma(num1, num2));
