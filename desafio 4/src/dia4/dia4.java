@@ -1,12 +1,5 @@
 package dia4;
 
-/**
- * @author Sam Pfleger Mendes
- * @date 09/10/2022
- * 
- * incompleto
- */
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
