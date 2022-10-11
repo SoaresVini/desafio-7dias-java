@@ -79,18 +79,14 @@ public class dia4 extends JFrame {
 
 						maior = numeros.get(i);
 						
-						String maiorS = String.valueOf(maior);
-						
-						maiorText.setText(maiorS);
+						maiorText.setText(String.valueOf(maior));
 					}
 
 					if (menor > numeros.get(i)) {
 
 						menor = numeros.get(i);
-						
-						String menorS = String.valueOf(menor);
 
-						menorText.setText(menorS);
+						menorText.setText(String.valueOf(menor));
 				}
 				
 				}
@@ -103,12 +99,8 @@ public class dia4 extends JFrame {
 		JButton Cadastrar = new JButton("Cadastrar");
 		Cadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				String i = nume.getText();
-
-				Double x = Double.valueOf(i);
-
-				numeros.add(x);
+				
+				numeros.add(Double.valueOf(nume.getText()));
 
 			}
 		});
