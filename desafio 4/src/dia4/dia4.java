@@ -1,13 +1,5 @@
 package dia4;
 
-
-/**
- * @author Sam Pfleger Mendes
- * @date 09/10/2022
- * 
- * incompleto
- */
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,15 +11,19 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 public class dia4 extends JFrame {
 
 	private JPanel num;
+	private JTextField textField_1;
 	private JTextField nume;
-	private Double[] cad ;
-	private JTextField maior;
-	private JTextField menor;
+	ArrayList<Double> numeros = new ArrayList();
+	private JTextField maiorText;
+	private JTextField menorText;
+
 	/**
 	 * Launch the application.
 	 */
@@ -61,32 +57,33 @@ public class dia4 extends JFrame {
 		num.add(nume);
 		nume.setColumns(10);
 
+		
+
 		JButton exibir = new JButton("Exibir");
 		exibir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Double maior1 = Double.MAX_VALUE;
-				Double menor1 = Double.MIN_VALUE;
-				
-				String i = nume.getText();
-				
-				Integer x = Integer .valueOf(i);
-				
-				cad = new Double [x];
-				
-				for (Double double1 : cad) {
-					
-					if (cad[x]>maior1 ) {
-						maior1 = cad[x];
+
+				Double maior = Double.MIN_VALUE;
+				Double menor = Double.MAX_VALUE;
+
+				for (int i = 0; i < numeros.size(); i++) {
+
+					if (maior < numeros.get(i)) {
+
+						maior = numeros.get(i);
+						
+						maiorText.setText(String.valueOf(maior));
 					}
+
+					if (menor > numeros.get(i)) {
+
+						menor = numeros.get(i);
+
+						menorText.setText(String.valueOf(menor));
 				}
-		
-				for (Double double1 : cad) {
-					
-					if (cad[x]< menor1 ) {
-						menor1 = cad[x];
-					}
+				
 				}
+	
 			}
 		});
 		exibir.setBounds(104, 154, 108, 25);
@@ -95,20 +92,9 @@ public class dia4 extends JFrame {
 		JButton Cadastrar = new JButton("Cadastrar");
 		Cadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				numeros.add(Double.valueOf(nume.getText()));
 
-				String i = nume.getText();
-		
-					Integer x = Integer .valueOf(i);
-					
-					cad = new Double [x];
-					
-					for (Double double1 : cad) {
-						
-						JOptionPane.showInputDialog( "Escreva um numero: "+cad,null);
-						
-					}
-				
-				
 			}
 		});
 		Cadastrar.setBounds(104, 117, 108, 25);
@@ -122,14 +108,16 @@ public class dia4 extends JFrame {
 		lblMenor.setBounds(35, 79, 70, 15);
 		num.add(lblMenor);
 		
-		maior = new JTextField();
-		maior.setColumns(10);
-		maior.setBounds(104, 47, 114, 19);
-		num.add(maior);
+		maiorText = new JTextField();
+		maiorText.setEditable(false);
+		maiorText.setColumns(10);
+		maiorText.setBounds(104, 46, 114, 19);
+		num.add(maiorText);
 		
-		menor = new JTextField();
-		menor.setColumns(10);
-		menor.setBounds(104, 77, 114, 19);
-		num.add(menor);
+		menorText = new JTextField();
+		menorText.setEditable(false);
+		menorText.setColumns(10);
+		menorText.setBounds(104, 76, 114, 19);
+		num.add(menorText);
 	}
 }
